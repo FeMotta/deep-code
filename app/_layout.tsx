@@ -8,7 +8,6 @@ import { ConvexReactClient } from "convex/react";
 
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AuthProvider } from '@/context/AuthContext';
-import { ChallengeProvider } from '@/context/ChallengeContext';
 
 declare global {
   interface Window {
@@ -44,13 +43,11 @@ export default function RootLayout() {
     >
       <ThemeProvider>
         <AuthProvider>
-          <ChallengeProvider>
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen name="+not-found" />
-            </Stack>
-          </ChallengeProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
           <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         </AuthProvider>
       </ThemeProvider>
